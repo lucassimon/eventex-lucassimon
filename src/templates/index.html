@@ -1,32 +1,47 @@
 <html>
 <head>
 	<title> EventeX :: Lucas Simon </title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]>
+  		<link rel="stylesheet" href="{{ STATIC_URL }}css/ie.css" type="text/css" media="screen, projection">
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 </head>
 <body>
+	<div class="container">
+		<h1>EventeX</h1>
+		<br />
+		<h3>Bem-vindo ao EventeX - Lucas Simon</h3>
+		
+		<hr>
+		
+		<div>
+			<article>
+				<p>
+					O evento mais sensacional do ano depois do Dev in Rio!
+					<br />
+					Você não pode perder esta oportunidade!
+					<br />
+					<span class="enphasis">
+						<a href="#">Abertura das inscrições em 18/03/2012.</a>
+					</span> 
+					<br />
+					Para dúvida e mais informações, entre em contato com 
+					<a href="mailto:eventex@eventex.com.br?subject=feedback" "email me">eventex@eventex.com.br</a> 
+				</p>
+			</article>
+		</div>
 
-	<h1>EventeX</h1>
-	<h3>Bem-vindo ao EventeX - Lucas Simon</h3>
+		<hr>
 
-	<hr>
-
-	<div>
-		<article>
-			<p>O evento mais sensacional do ano depois do Dev in Rio!</p>
-			<p>Você não pode perder esta oportunidade!</p>
-			<p><strong>Abertura das inscrições em 18/03/2012.</strong></p>
-			<p>
-				Para dúvida e mais informações, entre em contato com 
-				<a href="mailto:eventex@eventex.com.br?subject=feedback" "email me">eventex@eventex.com.br</a> 
-			</p>
-		</article>
+		<div>
+			<footer>
+				<p>
+					Copyright © {% now "Y" %} - Lucas Simon Rodrigues Magalhaes.
+				</p>
+			</footer>	
+		</div><!-- / -->
 	</div>
-
-	<div>
-		<footer>
-			Copyright © {% now "Y" %} - Lucas Simon Rodrigues Magalhaes.
-		</footer>	
-	</div><!-- / -->
-
 </body>
 </html>
