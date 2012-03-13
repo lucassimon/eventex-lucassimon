@@ -1,0 +1,94 @@
+body { 
+	background   : #ca4247 url(/static/img/bg_body2.jpg) repeat scroll;
+	border-bottom: solid 1px #222;
+	padding      : 0;
+	padding-top  : 60px;
+	display      : block;
+	color        : #FFF;
+}
+
+@font-face {
+	font-family: 'LeagueGothicRegular';
+	src        : url('/static/fonts/League_Gothic-webfont.eot');
+	src        : local('â˜º'), url('/static/fonts/League_Gothic-webfont.woff') format('woff'), 
+		url('/static/League_Gothic-webfont.ttf') format('truetype'),
+		font-weight: normal;
+	font-style : normal;
+}
+
+
+h1 {
+	font-family  : LeagueGothicRegular, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
+	font-size    : 90px;
+	line-height  : 60px;
+	color        : #FFF;
+	margin-bottom: 1px;
+	text-align   : center;
+	text-shadow: 0 5px 0 rgba(255, 255, 255, 0.3);
+}
+
+h3 {
+	font-family: LeagueGothicRegular, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
+	text-align : center;
+	font-size  : 20px;
+	color      : #FFF;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+div>article {
+	text-align: center;
+}
+
+p {
+	font-family: Calluna, Cambria, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-size  : 18px;
+	color      : #FFF;
+	line-height: 42px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+hr {
+	display      : block;
+	height       : 0px;
+	border       : 0;
+	border-top   : 1px solid #303462;
+	margin       : 1em 0;
+	padding      : 0;
+	border-bottom: 1px solid #3E4480;
+}
+
+.enphasis {
+	font-family: LeagueGothicRegular, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
+	font-size  : 18px;
+	color      : #CA4247;
+}
+
+.enphasis  a {
+	color                : #CA4247;
+	background           : #282C52;
+	background           : rgba(0, 0, 0, 0.2);
+	text-decoration      : none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius   : 4px;
+	border-radius        : 4px;
+	text-align           : center;
+	width                : 95%;
+}
+
+.enphasis  a:hover {
+	color: #87CDE7;
+}
+
+a {
+	color          : #CA4247;
+	text-decoration: none;
+}
+
+a:hover {
+	color          : #87CDE7
+	text-decoration: none;
+}
+
+div>footer {
+	text-align: center;
+}
