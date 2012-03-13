@@ -7,20 +7,31 @@ body {
 	color        : #FFF;
 }
 
-@font-face {
-	font-family: 'LeagueGothicRegular';
+/*@font-face {
+	font-family: LeagueGothicRegular;
 	src        : url('/static/fonts/League_Gothic-webfont.eot');
 	src        : local('â˜º'), url('/static/fonts/League_Gothic-webfont.woff') format('woff'), 
 		url('/static/League_Gothic-webfont.ttf') format('truetype'),
 		font-weight: normal;
 	font-style : normal;
 }
+*/
+
+
+
+@font-face {
+	font-family: Days;
+	src: url("/static/fonts/Days.otf") format("opentype");
+
+}
 
 
 h1 {
-	font-family  : LeagueGothicRegular, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
+	font-family  : Days, "Helvetica Neue", "Arial Narrow", Helvetica, Geneva, sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
 	font-size    : 90px;
-	line-height  : 60px;
+	line-height: 1;
 	color        : #FFF;
 	margin-bottom: 1px;
 	text-align   : center;
@@ -28,7 +39,7 @@ h1 {
 }
 
 h3 {
-	font-family: LeagueGothicRegular, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
+	font-family: Days, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
 	text-align : center;
 	font-size  : 20px;
 	color      : #FFF;
@@ -43,8 +54,11 @@ p {
 	font-family: Calluna, Cambria, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
 	font-size  : 18px;
 	color      : #FFF;
-	line-height: 42px;
+	line-height: 1.5;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+	margin-bottom: 1em;
+	
+	
 }
 
 hr {
