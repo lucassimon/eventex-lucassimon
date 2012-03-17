@@ -7,6 +7,6 @@ import datetime
 
 def homepage(request):
 	dataAtual = datetime.datetime.now()
-	dataInscricao = datetime.date(2012,03,18)
+	dataInscricao = datetime.datetime(2012,03,18,9,00,00,00)
 	context = RequestContext(request)
 	return render_to_response('index.html',locals(),context)
