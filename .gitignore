@@ -6,5 +6,6 @@ local
 Scripts
 .Python
 *.pyc
+*.zip
 eventex-lucassimon.sublime-project
 eventex-lucassimon.sublime-workspace
