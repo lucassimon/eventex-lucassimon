@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$',homepage),
+    url(r'^inscricao/',include('subscriptions.urls',namespace='subscriptions')),
 )
 
 
