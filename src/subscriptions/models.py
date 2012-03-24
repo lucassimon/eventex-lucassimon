@@ -3,7 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Subscription(models.Model):
-	"""Classe para mostrar o model de subscricao do evento"""
+	"""Classe para model de subscricao do evento
+		A instancia de um subscription salva apenas 01 linha na tabela.
+	"""
 	name       = models.CharField(max_length=100)
 	cpf        = models.CharField(max_length=11, unique=True)
 	email      = models.EmailField(unique=True)
