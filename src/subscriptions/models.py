@@ -15,3 +15,12 @@ class Subscription(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	class Meta:
+		"""
+		Definindo o dicionario de dados para que a leitura dos campos
+		seja em formato humano 
+		"""
+		ordering            = ["created_at"]
+		verbose_name        = u"Inscrição"
+		verbose_name_plural = u"Inscrições"
