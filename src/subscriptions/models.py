@@ -19,7 +19,7 @@ class Subscription(models.Model):
 	class Meta:
 		"""
 		Definindo o dicionario de dados para que a leitura dos campos
-		seja em formato humano 
+		seja em formato humano, e configurar o padrão do querySet 
 		"""
 		ordering            = ["created_at"]
 		verbose_name        = u"Inscrição"
