@@ -51,6 +51,7 @@
 		margin        : 30px 0 0 0;
 	}
 
+
 	h2 {
 		text-transform: uppercase;
 		color         : #77dff1;
@@ -62,7 +63,7 @@
 		text-align    : left;
 	}
 
-	div>.logo {
+	div>.logo>a {
 		font-family: Days, 'Helvetica Neue', 'Arial Narrow', Helvetica, Geneva, sans-serif;
 		text-align : center;
 		font-size  : 100px;
