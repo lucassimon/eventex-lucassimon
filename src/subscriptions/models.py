@@ -1,3 +1,4 @@
+# encoding: utf-8 
 from django.db import models
 
 # Create your models here.
@@ -19,5 +20,5 @@ class Subscription(models.Model):
 	class Meta:
 		"""Definindo o dicionario de dados para que a leitura dos campos seja em formato humano, e configurar o padrao do querySet"""
 		ordering            = ["created_at"]
-		verbose_name        = "Inscricao"
-		verbose_name_plural = "Inscricoes"
+		verbose_name        = "Inscrição"
+		verbose_name_plural = "Inscrições"

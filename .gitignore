@@ -9,3 +9,4 @@ Scripts
 *.zip
 eventex-lucassimon.sublime-project
 eventex-lucassimon.sublime-workspace
+*.sqlite3

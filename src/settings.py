@@ -21,7 +21,7 @@ if 'True' == os.environ.get('SEND_EMAIL','False'):
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 else:
-    EMAIL_BACKEND = 'django.core.mail.console.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
