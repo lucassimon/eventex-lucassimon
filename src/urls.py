@@ -6,7 +6,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('django.views.generic.simple',
     # Examples:
     # url(r'^$', 'src.views.home', name='home'),
     # url(r'^src/', include('src.foo.urls')),
@@ -17,7 +17,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$',homepage),
+    # Generalizando as views passando como parametro qual template vou usar
+    #url(r'^$',homepage, {template: 'index.html'}),
+
+    url(r'^$', 'direct_to_template', {'template':'index.html'})
     url(r'^inscricao/',include('subscriptions.urls',namespace='subscriptions')),
 )
 
