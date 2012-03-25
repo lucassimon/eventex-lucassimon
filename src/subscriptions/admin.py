@@ -1,3 +1,4 @@
+# encoding: utf-8 
 import datetime
 from django.contrib import admin
 from subscriptions.models import Subscription
@@ -11,7 +12,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
     def subscribed_today(self, obj):
         return obj.created_at.date() == datetime.date.today()
     
-    subscribed_today.short_description = u'Inscrito hoje?'
+    subscribed_today.short_description = 'Inscrito hoje?'
     subscribed_today.boolean = True
 
 admin.site.register(Subscription, SubscriptionAdmin)
