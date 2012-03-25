@@ -18,9 +18,9 @@ urlpatterns = patterns('django.views.generic.simple',
     # url(r'^admin/', include(admin.site.urls)),
 
     # Generalizando as views passando como parametro qual template vou usar
-    #url(r'^$',homepage, {template: 'index.html'}),
+    url(r'^$',homepage, {'template': 'index.html'}),
 
-    url(r'^$', 'direct_to_template', {'template':'index.html'})
+    #url(r'^$', 'direct_to_template', {'template':'index.html'})
     url(r'^inscricao/',include('subscriptions.urls',namespace='subscriptions')),
 )
 
