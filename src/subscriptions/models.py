@@ -17,10 +17,7 @@ class Subscription(models.Model):
 		return self.name
 
 	class Meta:
-		"""
-		Definindo o dicionario de dados para que a leitura dos campos
-		seja em formato humano, e configurar o padrão do querySet 
-		"""
+		"""Definindo o dicionario de dados para que a leitura dos campos seja em formato humano, e configurar o padrao do querySet"""
 		ordering            = ["created_at"]
-		verbose_name        = u"Inscrição"
-		verbose_name_plural = u"Inscrições"
+		verbose_name        = "Inscricao"
+		verbose_name_plural = "Inscricoes"
