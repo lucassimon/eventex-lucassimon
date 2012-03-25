@@ -1,0 +1,19 @@
+{# extender o layout base.html #}
+{% extends 'base.html' %}
+
+{# Cria um bloco content #}
+{% block content %}
+
+	<h1>Formulário de inscrição</h1>
+
+	{# Action para a propria url #}
+	<form action="." method="POST" accept-charset="utf-8">
+		{# tag do template do django cross site request forgery token #}
+		{% csrf_token %}
+		{# imprimir o campo dentro de uma p (paragrafo) #}
+		{{ form.as_p }}
+		<input type="submit" name="Enviar" value="Enviar!" class="button" />
+	</form>
+{% endblock content %}
+
+
