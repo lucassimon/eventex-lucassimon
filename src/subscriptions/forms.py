@@ -5,6 +5,7 @@ from subscriptions.validators import CpfValidator
 from subscriptions.models import Subscription
 from django.core.validators import EMPTY_VALUES
 
+
 class PhoneWidget(forms.MultiWidget):
 	"""docstring for PhoneWidget"""
 	def __init__(self, attrs=None):
@@ -19,17 +20,16 @@ class PhoneWidget(forms.MultiWidget):
 			return [None, None]
 		return value.split('-')
 
-
 class PhoneField(forms.MultiValueField):
-	""" widget para criar os campos do phone com 02 inputs um para DDD e o outro para o campo em si de telefone """
-	widget = PhoneWidget
+	"""docstring for PhoneField"""
+	def __init__(self, *args,**kwargs):
+		fields =(
+			forms.IntegerField(),
+			forms.IntegerField(),
+		)
 
-	def __init__(self, *args, **kwargs):
-		fields = (
-            forms.IntegerField(),
-            forms.IntegerField())
-    	super(PhoneField, self).__init__(fields, *args, **kwargs)
-
+		super(PhoneField, self).__init__(fields,*args,**kwargs)
+	
 	def compress(self, data_list):
 		if not data_list:
 			return None
@@ -46,6 +46,8 @@ class PhoneField(forms.MultiValueField):
 class SubscriptionForm(forms.ModelForm):
 	"""docstring for SubscriptionForm"""
 
+	phone = PhoneField(label=_('Telefone'), required=False)
+
 	class Meta:
 		"""docstring for Meta"""
 		model = Subscription
@@ -56,7 +58,7 @@ class SubscriptionForm(forms.ModelForm):
 	# cpf = forms.CharField(label=_('CPf:'), max_length=11, min_length=11, validators=[CpfValidator])
 	# email = forms.EmailField(label=_('Email'))
 	# phone = forms.CharField(label=_('Telefone'), max_length=100, required=False,)
-	phone = PhoneField(label=_('Telefone'), required=False)
+	
 
 
 	def _unique_check(self, fieldname, error_message=''):
