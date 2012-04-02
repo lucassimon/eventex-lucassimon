@@ -5,48 +5,42 @@ from subscriptions.validators import CpfValidator
 from subscriptions.models import Subscription
 from django.core.validators import EMPTY_VALUES
 
-
 class PhoneWidget(forms.MultiWidget):
-	"""docstring for PhoneWidget"""
-	def __init__(self, attrs=None):
-		widgets = (
+    def __init__(self, attrs=None):
+        widget = (
 			forms.TextInput(attrs={'size':'2', 'maxlength':'2'}),
-			forms.TextInput(attrs={'size':'15', 'maxlength':'9'}),
-		)
-		super(PhoneWidget, self).__init__(widgets, attrs)
-	
-	def decompress(self,value):
-		if not value:
-			return [None, None]
-		return value.split('-')
+            forms.TextInput(attrs={'size':'15', 'maxlength':'9'}))
+        super(PhoneWidget, self).__init__(widget, attrs)
+
+    def decompress(self, value):
+        if not value:
+            return [None, None]
+
+        return value.split('-')
 
 class PhoneField(forms.MultiValueField):
-	"""docstring for PhoneField"""
-	def __init__(self, *args,**kwargs):
-		fields =(
-			forms.IntegerField(),
-			forms.IntegerField(),
-		)
+	widget = PhoneWidget
 
-		super(PhoneField, self).__init__(fields,*args,**kwargs)
-	
+	def __init__(self, *args, **kwargs):
+		fields = (
+        	forms.IntegerField(),
+			forms.IntegerField())
+		super(PhoneField, self).__init__(fields, *args, **kwargs)
 	def compress(self, data_list):
 		if not data_list:
 			return None
 
 		if data_list[0] in EMPTY_VALUES:
-			raise forms.ValidationError(u'DDD Inválido.')
+			raise forms.ValidationError(u'DDD inválido.')
 
 		if data_list[1] in EMPTY_VALUES:
-			raise forms.ValidationError(u'Número Inválido.')
+			raise forms.ValidationError(u'Número inválido.')
 		return '%s-%s' % tuple(data_list)
-
-
 
 class SubscriptionForm(forms.ModelForm):
 	"""docstring for SubscriptionForm"""
 
-	phone = PhoneField(label=_('Telefone'), required=False)
+	phone = PhoneField(label=_('Teleasdasdasdfone'), required=False)
 
 	class Meta:
 		"""docstring for Meta"""
@@ -83,5 +77,3 @@ class SubscriptionForm(forms.ModelForm):
 				_(u'Voce precisa informar seu e-mail ou seu telefone.')
 			)
 		return self.cleaned_data
-
-
