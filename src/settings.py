@@ -131,6 +131,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    ########################################## CONTRIB APPS
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -141,8 +142,13 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    ##################################### APPS DE TERCEIROS
+    'south',
+    
+    ########################################### MINHAS APPS
     'core',
-    'subscriptions'
+    'subscriptions',
 )
 
 # A sample logging configuration. The only tangible logging
