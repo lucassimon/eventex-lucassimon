@@ -28,7 +28,7 @@ class PhoneField(forms.MultiValueField):
 		fields = (
             forms.IntegerField(),
             forms.IntegerField())
-    	super(PhoneField, self).__init__(fields, *args, **kwargs)
+		super(PhoneField, self).__init__(fields, *args, **kwargs)
 
 	def compress(self, data_list):
 		if not data_list:
