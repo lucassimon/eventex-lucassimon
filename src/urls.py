@@ -26,6 +26,8 @@ urlpatterns = patterns('django.views.generic.simple',
 
     #url(r'^$', 'direct_to_template', {'template':'index.html'})
     url(r'^inscricao/',include('subscriptions.urls',namespace='subscriptions')),
+
+    url(r'^', include('core.urls', namespace='core')),
 )
 
 
