@@ -14,10 +14,9 @@ class PhoneWidget(forms.MultiWidget):
 		super(PhoneWidget, self).__init__(widget, attrs)
 
 	def decompress(self, value):
-    	if not value:
-            return [None, None]
-
-        return value.split('-')
+		if not value:
+			return [None, None]
+		return value.split('-')
 
 class PhoneField(forms.MultiValueField):
 	widget = PhoneWidget
@@ -25,7 +24,7 @@ class PhoneField(forms.MultiValueField):
 	def __init__(self, *args, **kwargs):
 		fields = (
 			forms.IntegerField(),
-			sforms.IntegerField()
+			forms.IntegerField()
 		)
 
 		super(PhoneField, self).__init__(fields, *args, **kwargs)
