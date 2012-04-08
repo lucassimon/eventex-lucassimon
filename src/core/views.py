@@ -5,8 +5,13 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 import datetime
 from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 from core.models import Speaker, Talk
 
+
+class HomepageView(TemplateView):
+	"""docstring for HomepageView"""
+	template_name = 'index.html'
 
 def homepage(request,template=None):
 	""" Action para exibir a home do site """

@@ -7,7 +7,7 @@ def do_youtube(parser,token):
 	try:
 		tag_name, id_ = token.split_contents()
 	except ValueError:
-    	raise template.TemplateSyntaxError, "%r tag requires 1 argument" % token.contents.split()[0]
+		raise template.TemplateSyntaxError, "%r tag requires 1 argument" % token.contents.split()[0]
 	return YoutubeNode(id_)
 
 class YoutubeNode(Node):
@@ -20,7 +20,7 @@ class YoutubeNode(Node):
 		except template.VariableDoesNotExist:
 			actual_id = self.id
 		t = loader.get_template('embed/youtube.html')
-		c = Context({'id': actual_id},autoescape = context.autoescape)
+		c = Context({'id': actual_id}, autoescape=context.autoescape)
 		return t.render(c)
 
 register.tag('youtube',do_youtube)

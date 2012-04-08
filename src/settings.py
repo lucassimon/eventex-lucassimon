@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     ########################################### MINHAS APPS
     'core',
     'subscriptions',
+    'embed',
 )
 
 # A sample logging configuration. The only tangible logging
