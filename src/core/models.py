@@ -86,6 +86,14 @@ class Talk(models.Model):
 	class Meta:
 		verbose_name = _(u'Palestra')
 
+	@property
+	def slides(self):
+		return self.media_set.filter(type='SL')
+
+	@property
+	def videos(self):
+		return self.media_set.filter(type='YT')
+
 	def __unicode__(self):
 		return unicode(self.title)
 
