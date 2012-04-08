@@ -38,26 +38,28 @@ class SubscriptionAdmin(admin.ModelAdmin):
     #paid.short_description = _(u'Pago?')
 
     def export_subscriptions(self,request):
-    	# coloca o mimetype da pagina para text/csv
-    	response = HttpResponse(mimetype='text/csv')
-    	# vai ser por download e o nome do arquivo sera listaInscricao
-    	response['Content-Disposition'] = 'attachment; filename=listaInscricao.csv'
+    	
     	# resgata todos os objetos do model correte(subscription)
     	subscriptions = self.model.objects.all()
     	# inicializa a tupla vazia
-    	tuplaWriteCsv = ()
+    	listaWriteCsv = []
     	# inicializa a tupla temporaria
     	tempTupla = ()
-    	# arquivo para fazer escrita das tupla original, formato csv
-    	out = csv.writer(response)
     	# faz a interacao do queryset subscriptions acima
     	for s in subscriptions:
     		# cria uma tupla contendo o nome,cpf,email,phone,criado em, e pago
-    		tempTupla = (s.name,s.cpf,s.email,s.phone)
+    		tempTupla = (s.name,s.cpf,s.email,s.phone,s.created_at,s.paid)
     		# coloca na tupla oficial o conteudo da tupla temporaria sempre adicionando uma virgula no final
-    		tuplaWriteCsv += tempTupla,
+    		listaWriteCsv.append(tempTupla)
+
+        # coloca o mimetype da pagina para text/csv
+        response = HttpResponse(mimetype='text/csv')
+        # arquivo para fazer escrita das tupla original, formato csv
+        out = csv.writer(response)
     	# escrevendo as tuplas no arquivo
-    	out.writerows(tuplaWriteCsv)
+    	out.writerows(listaWriteCsv)
+        # vai ser por download e o nome do arquivo sera listaInscricao
+        response['Content-Disposition'] = 'attachment; filename=listaInscricao.csv'
     	# retorna o response 
     	return response
 

@@ -6,14 +6,15 @@ from subscriptions.models import Subscription
 from django.core.validators import EMPTY_VALUES
 
 class PhoneWidget(forms.MultiWidget):
-    def __init__(self, attrs=None):
-        widget = (
+	def __init__(self, attrs=None):
+		widget = (
 			forms.TextInput(attrs={'size':'2', 'maxlength':'2'}),
-            forms.TextInput(attrs={'size':'15', 'maxlength':'9'}))
-        super(PhoneWidget, self).__init__(widget, attrs)
+			forms.TextInput(attrs={'size':'15', 'maxlength':'9'})
+		)
+		super(PhoneWidget, self).__init__(widget, attrs)
 
-    def decompress(self, value):
-        if not value:
+	def decompress(self, value):
+    	if not value:
             return [None, None]
 
         return value.split('-')
@@ -23,9 +24,12 @@ class PhoneField(forms.MultiValueField):
 
 	def __init__(self, *args, **kwargs):
 		fields = (
-        	forms.IntegerField(),
-			forms.IntegerField())
+			forms.IntegerField(),
+			sforms.IntegerField()
+		)
+
 		super(PhoneField, self).__init__(fields, *args, **kwargs)
+
 	def compress(self, data_list):
 		if not data_list:
 			return None

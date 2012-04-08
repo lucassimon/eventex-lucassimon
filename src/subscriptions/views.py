@@ -35,14 +35,20 @@ def createSubscribe(request):
 		context = RequestContext(request, {'form': form})
 		return render_to_response('subscriptions/new.html',context)
 
-	subscription = form.save()
+	subscription = form.save(commit = False)
+	subscription.email = form.cleaned_data['email'] or None
+	# A linha acima significa:
+	# if form.cleaned_data['email']:
+	# 		subscription.email = form.cleaned_data['email']
+	# else:
+	# 		subscription.email = None
 
-	""" Enviando email para o usuario apos salvar os dados"""
-	send_mail(subject=u'Cadastrado com sucesso',
-		message='Obrigado pela sua inscrição!',
-		from_email = settings.DEFAULT_FROM_EMAIL,
-		recipient_list = [subscription.email]
-	)
+	# Salva definitivamente o objeto no banco
+	subscription.save()
+
+	# caso nao tenha email, nao envia a mensagem
+	if subscription.email:
+		send_confirmation(subscription.email)
 
 	return HttpResponseRedirect(reverse('subscriptions:success',args=[subscription.pk]))
 
@@ -52,3 +58,11 @@ def success(request, pk):
 	context = RequestContext(request, {'subscription':subscription})
 	return render_to_response('subscriptions/success.html',context)
 
+
+def send_confirmation(email):
+	""" Enviando email para o usuario apos salvar os dados"""
+	send_mail(subject=u'Cadastrado com sucesso',
+		message='Obrigado pela sua inscrição!',
+		from_email = settings.DEFAULT_FROM_EMAIL,
+		recipient_list = [email]
+	)
