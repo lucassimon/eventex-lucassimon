@@ -1,10 +1,23 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from django.db import models
 from django.utils.translation import ugettext as _
 import datetime
 
 # Create your models here.
+
+# Abstract Base Class
+# class Session(models.Model):
+# 	"""docstring for Session"""
+# 	title       = models.CharField(max_length=200)
+# 	description = models.TextField()
+# 	start_time  = models.TimeField(blank=True)
+# 	objects     = PeriodManager()
+# 	class Meta:
+# 		abstract = True
+
+# 	def __unicode__(self):
+# 		return unicode(self.title)
 
 class Speaker(models.Model):
 	"""Classe model para o speaker"""
@@ -60,22 +73,6 @@ class PeriodManager(models.Manager):
 		qs = self.filter(start_time__gte=self.midday)
 		qs = qs.order_by('start_time')
 		return qs
-
-
-# Abstract Base Class
-# class Session(models.Model):
-# 	"""docstring for Session"""
-# 	title       = models.CharField(max_length=200)
-# 	description = models.TextField()
-# 	start_time  = models.TimeField(blank=True)
-# 	objects     = PeriodManager()
-# 	class Meta:
-# 		abstract = True
-
-# 	def __unicode__(self):
-# 		return unicode(self.title)
-
-
 
 class Talk(models.Model):
 	""" """
